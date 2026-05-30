@@ -383,19 +383,13 @@ export default function App() {
           transition={{ delay: 0.2, duration: 0.4, ease }}
           style={{ padding: '24px 24px 20px', borderBottom: '1px solid var(--line)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}
         >
-          <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-            <motion.div whileHover={{ rotate: 8, scale: 1.05 }} transition={{ type: 'spring', stiffness: 300 }}
-              style={{ width: 28, height: 28, position: 'relative', flexShrink: 0 }}
-            >
-              <div style={{ position: 'absolute', inset: 0, border: '1px solid var(--accent)', borderRadius: 6, transform: 'rotate(8deg)', opacity: 0.4 }} />
-              <div style={{ position: 'absolute', inset: 2, background: 'var(--accent)', borderRadius: 4, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <span style={{ fontFamily: 'IBM Plex Mono', fontWeight: 500, fontSize: 11, color: 'var(--bg)', lineHeight: 1 }}>B</span>
-              </div>
-            </motion.div>
-            <span style={{ fontFamily: 'IBM Plex Mono', fontSize: '0.875rem', fontWeight: 500, color: 'var(--text-bright)', letterSpacing: '-0.01em' }}>
-              brazeo<span style={{ color: 'var(--accent)' }}>.ai</span>
-            </span>
-          </div>
+          <motion.img
+            src="/brazeo-logo.png"
+            alt="Brazeo.ai"
+            whileHover={{ scale: 1.03 }}
+            transition={{ type: 'spring', stiffness: 300 }}
+            style={{ height: 28, width: 'auto', objectFit: 'contain' }}
+          />
           <button onClick={() => setSidebar(false)} style={{ background: 'none', border: 'none', color: 'var(--muted)', cursor: 'pointer' }} className="lg-hide">
             <X size={18} />
           </button>
