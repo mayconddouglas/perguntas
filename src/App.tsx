@@ -388,7 +388,7 @@ export default function App() {
             alt="Brazeo.ai"
             whileHover={{ scale: 1.03 }}
             transition={{ type: 'spring', stiffness: 300 }}
-            style={{ height: 28, width: 'auto', objectFit: 'contain' }}
+            style={{ height: 28, width: 'auto', objectFit: 'contain', mixBlendMode: 'screen' }}
           />
           <button onClick={() => setSidebar(false)} style={{ background: 'none', border: 'none', color: 'var(--muted)', cursor: 'pointer' }} className="lg-hide">
             <X size={18} />
