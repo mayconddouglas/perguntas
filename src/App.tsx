@@ -123,7 +123,7 @@ export default function App() {
 
   // ── MAIN LAYOUT ──────────────────────────────────────────────────────────
   return (
-    <div style={{ display: 'flex', height: '100vh', overflow: 'hidden', background: 'var(--bg)' }} className="scanline">
+    <div style={{ display: 'flex', height: '100vh', overflow: 'hidden', background: 'var(--bg)' }}>
 
       {/* mobile overlay */}
       <AnimatePresence>
