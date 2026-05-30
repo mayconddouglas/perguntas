@@ -475,11 +475,11 @@ export default function App() {
           </div>
         </div>
 
-        {/* Desktop top bar */}
+        {/* Desktop top bar — fixo, sempre visível */}
         <motion.div
           initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.4, ease }}
-          style={{ height: 48, borderBottom: '1px solid var(--line)', display: 'flex', alignItems: 'center', padding: '0 48px', flexShrink: 0, gap: 20 }}
+          style={{ height: 48, borderBottom: '1px solid var(--line)', display: 'flex', alignItems: 'center', padding: '0 48px', flexShrink: 0, gap: 20, background: 'var(--bg)', zIndex: 5 }}
           className="desktop-topbar"
         >
           <span className="step-counter">{pad(step + 1)} / {pad(briefingData.length)}</span>
@@ -501,7 +501,7 @@ export default function App() {
           <div className="grid-bg" style={{ position: 'absolute', inset: 0, opacity: 0.35, pointerEvents: 'none' }} />
           <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 80% 60% at 50% 0%, transparent 40%, var(--bg) 100%)', pointerEvents: 'none', zIndex: 1 }} />
 
-          <div style={{ maxWidth: 720, margin: '0 auto', padding: '64px 48px 160px', position: 'relative', zIndex: 2 }}>
+          <div style={{ maxWidth: 720, margin: '0 auto', padding: '48px 48px 32px', position: 'relative', zIndex: 2 }}>
             <AnimatePresence mode="wait" custom={direction}>
               <motion.div
                 key={step}
@@ -687,11 +687,11 @@ export default function App() {
           </div>
         </div>
 
-        {/* ── BOTTOM NAV ── */}
+        {/* ── BOTTOM NAV — fixo, sempre visível ── */}
         <motion.div
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.35, duration: 0.4, ease }}
-          style={{ position: 'absolute', bottom: 0, left: 0, right: 0, zIndex: 10, background: 'linear-gradient(to top, var(--bg) 50%, transparent 100%)', padding: '40px 48px 32px' }}
+          style={{ flexShrink: 0, zIndex: 5, background: 'var(--bg)', borderTop: '1px solid var(--line)', padding: '20px 48px 24px' }}
         >
           <div style={{ maxWidth: 720, margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
             <div style={{ display: 'flex', gap: 5, alignItems: 'center' }}>
