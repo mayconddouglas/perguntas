@@ -467,9 +467,7 @@ export default function App() {
           <button onClick={() => setSidebar(true)} style={{ background: 'none', border: 'none', color: 'var(--text-dim)', cursor: 'pointer' }}>
             <Menu size={20} />
           </button>
-          <span style={{ marginLeft: 14, fontFamily: 'IBM Plex Mono', fontSize: '0.8125rem', color: 'var(--text)', letterSpacing: '0.04em' }}>
-            brazeo.ai
-          </span>
+          <img src="/brazeo-logo.png" alt="Brazeo.ai" style={{ height: 22, width: 'auto', objectFit: 'contain', mixBlendMode: 'screen', marginLeft: 14 }} />
           <div className="cat-tag" style={{ marginLeft: 'auto' }}>
             {pad(step + 1)} / {pad(briefingData.length)}
           </div>
