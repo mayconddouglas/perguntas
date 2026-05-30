@@ -215,6 +215,16 @@ export default function App() {
         return v && (Array.isArray(v) ? v.length > 0 : String(v).trim() !== '');
       });
 
+  // catPct = % de TODAS as perguntas da categoria respondidas
+  const catPct = (i: number) => {
+    const qs = briefingData[i].questions;
+    const answered = qs.filter(q => {
+      const v = answers[q.id];
+      return v && (Array.isArray(v) ? v.length > 0 : String(v).trim() !== '');
+    }).length;
+    return Math.round((answered / qs.length) * 100);
+  };
+
   const pageVariants = {
     initial: (d: number) => ({ opacity: 0, y: d > 0 ? 40 : -40, filter: 'blur(4px)' }),
     animate: { opacity: 1, y: 0, filter: 'blur(0px)' },
@@ -439,9 +449,30 @@ export default function App() {
                 <span style={{ fontSize: '0.8125rem', color: isActive ? 'var(--text-bright)' : isDone ? 'var(--muted)' : 'var(--text-dim)', fontWeight: isActive ? 500 : 400, flex: 1 }}>
                   {c.title}
                 </span>
-                <span style={{ fontFamily: 'IBM Plex Mono', fontSize: 9, color: isActive ? 'var(--accent)' : 'var(--line2)', letterSpacing: '0.08em' }}>
-                  {pad(i + 1)}
-                </span>
+                {(() => {
+                  const pctCat = catPct(i);
+                  if (pctCat === 0) return (
+                    <span style={{ fontFamily: 'IBM Plex Mono', fontSize: 9, color: isActive ? 'var(--accent)' : 'var(--line2)', letterSpacing: '0.08em' }}>
+                      {pad(i + 1)}
+                    </span>
+                  );
+                  if (pctCat === 100) return (
+                    <motion.span
+                      initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }}
+                      style={{ fontFamily: 'IBM Plex Mono', fontSize: 9, color: 'var(--accent)', letterSpacing: '0.06em', background: 'var(--accent-dim)', padding: '2px 6px', borderRadius: 4 }}
+                    >
+                      100%
+                    </motion.span>
+                  );
+                  return (
+                    <motion.span
+                      animate={{ opacity: 1 }}
+                      style={{ fontFamily: 'IBM Plex Mono', fontSize: 9, color: isActive ? 'var(--accent)' : 'var(--text-dim)', letterSpacing: '0.06em' }}
+                    >
+                      {pctCat}%
+                    </motion.span>
+                  );
+                })()}
               </motion.button>
             );
           })}
