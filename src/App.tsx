@@ -490,7 +490,7 @@ export default function App() {
       {/* ── MAIN ── */}
       <motion.div
         initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4, delay: 0.15 }}
-        style={{ flex: 1, display: 'flex', flexDirection: 'column', height: '100vh', position: 'relative', marginLeft: 280 }}
+        style={{ flex: 1, display: 'flex', flexDirection: 'column', height: '100vh', position: 'relative', marginLeft: 280, overflow: 'hidden' }}
         className="main-content"
       >
         {/* Mobile header */}
@@ -526,7 +526,7 @@ export default function App() {
         </motion.div>
 
         {/* Scrollable content */}
-        <div ref={scrollRef} style={{ flex: 1, overflowY: 'auto', position: 'relative' }}>
+        <div ref={scrollRef} style={{ flexGrow: 1, minHeight: 0, overflowY: 'auto', position: 'relative' }}>
           <div className="grid-bg" style={{ position: 'absolute', inset: 0, opacity: 0.35, pointerEvents: 'none' }} />
           <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 80% 60% at 50% 0%, transparent 40%, var(--bg) 100%)', pointerEvents: 'none', zIndex: 1 }} />
 
@@ -720,7 +720,7 @@ export default function App() {
         <motion.div
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.35, duration: 0.4, ease }}
-          style={{ flexShrink: 0, zIndex: 5, background: 'var(--bg)', borderTop: '1px solid var(--line)', padding: '20px 48px 24px' }}
+          style={{ flexShrink: 0, zIndex: 5, background: 'var(--bg)', borderTop: '1px solid var(--line)', padding: '16px 48px 20px' }}
         >
           <div style={{ maxWidth: 720, margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
             <div style={{ display: 'flex', gap: 5, alignItems: 'center' }}>
